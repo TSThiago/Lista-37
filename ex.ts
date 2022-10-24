@@ -1,44 +1,44 @@
 // Ex 1:
 
-// console.log(ContarCaracteresRepetidos("aabcde333"))
+console.log(ContarCaracteresRepetidos("abcde"))
 
-// function ContarCaracteresRepetidos(palavra : string) : number{
-//     let contadorCaractere : number = 0
-//     let arrayPalavra : string[] = palavra.split('')
-//     arrayPalavra.forEach((x,index) => {
-//         let contadorLetra : number = 0
-//         for(index = 0; index < palavra.split('').length; index++){
-//             if(x == arrayPalavra[index]){
-//                 contadorLetra++
-//                 if(contadorLetra > 1){
-//                     contadorCaractere++
-//                 }
-//             }
-//         }
-//         arrayPalavra.shift()
-//     })
-//     return contadorCaractere
-// }  
+function ContarCaracteresRepetidos(palavra : string) : number{
+    let contadorCaractere : number = 0
+    let arrayPalavra : string [] = palavra.split('')
+    arrayPalavra.forEach((x) => {
+        let contadorRepetido : number = 0
+        for(let i : number = 0; i < arrayPalavra.length; i++){
+            if(x == arrayPalavra[i]){
+                contadorRepetido++
+            }
+        }
+        if(contadorRepetido > 1){
+            arrayPalavra = arrayPalavra.filter(caractere => caractere == x)
+            contadorCaractere++
+        }
+    })
+    return contadorCaractere
+}  
 
 // Ex 2:
 
-let nomes : string[] = []
+// let nomes : string[] = []
 
-RetornarTexto(nomes)
+// RetornarTexto(nomes)
 
-function RetornarTexto(nomes : string[]) : void{
-    if (nomes.length == 0){
-        console.log("Ninguém gostou disso.")
-    }else if(nomes.length == 1){
-        console.log(nomes[0]+ " gostou disso.")
-    }else if(nomes.length == 2){
-        console.log(nomes[0]+ " e " +nomes[1]+ " gostaram disso.")
-    }else if(nomes.length == 3){
-        console.log(nomes[0]+ ", " +nomes[1]+ " e " +nomes[2]+ " gostaram disso.")
-    }else if(nomes.length > 3){
-        console.log(nomes[0]+ ", " +nomes[1]+ " e outros " +(nomes.length - 2)+ " gostaram disso.")
-    }
-}
+// function RetornarTexto(nomes : string[]) : void{
+//     if (nomes.length == 0){
+//         console.log("Ninguém gostou disso.")
+//     }else if(nomes.length == 1){
+//         console.log(nomes[0]+ " gostou disso.")
+//     }else if(nomes.length == 2){
+//         console.log(nomes[0]+ " e " +nomes[1]+ " gostaram disso.")
+//     }else if(nomes.length == 3){
+//         console.log(nomes[0]+ ", " +nomes[1]+ " e " +nomes[2]+ " gostaram disso.")
+//     }else if(nomes.length > 3){
+//         console.log(nomes[0]+ ", " +nomes[1]+ " e outros " +(nomes.length - 2)+ " gostaram disso.")
+//     }
+// }
 
 // Ex 3:
 

@@ -1,42 +1,38 @@
 // Ex 1:
-// console.log(ContarCaracteresRepetidos("aabcde333"))
-// function ContarCaracteresRepetidos(palavra : string) : number{
-//     let contadorCaractere : number = 0
-//     let arrayPalavra : string[] = palavra.split('')
-//     arrayPalavra.forEach((x,index) => {
-//         let contadorLetra : number = 0
-//         for(index = 0; index < palavra.split('').length; index++){
-//             if(x == arrayPalavra[index]){
-//                 contadorLetra++
-//                 if(contadorLetra > 1){
-//                     contadorCaractere++
-//                 }
-//             }
-//         }
-//         arrayPalavra.shift()
-//     })
-//     return contadorCaractere
-// }  
-// Ex 2:
-var nomes = [];
-RetornarTexto(nomes);
-function RetornarTexto(nomes) {
-    if (nomes.length == 0) {
-        console.log("Ninguém gostou disso.");
-    }
-    else if (nomes.length == 1) {
-        console.log(nomes[0] + " gostou disso.");
-    }
-    else if (nomes.length == 2) {
-        console.log(nomes[0] + " e " + nomes[1] + " gostaram disso.");
-    }
-    else if (nomes.length == 3) {
-        console.log(nomes[0] + ", " + nomes[1] + " e " + nomes[2] + " gostaram disso.");
-    }
-    else if (nomes.length > 3) {
-        console.log(nomes[0] + ", " + nomes[1] + " e outros " + (nomes.length - 2) + " gostaram disso.");
-    }
+console.log(ContarCaracteresRepetidos("abcde"));
+function ContarCaracteresRepetidos(palavra) {
+    var contadorCaractere = 0;
+    var arrayPalavra = palavra.split('');
+    arrayPalavra.forEach(function (x) {
+        var contadorRepetido = 0;
+        for (var i = 0; i < arrayPalavra.length; i++) {
+            if (x == arrayPalavra[i]) {
+                contadorRepetido++;
+            }
+        }
+        if (contadorRepetido > 1) {
+            arrayPalavra = arrayPalavra.filter(function (caractere) { return caractere == x; });
+            contadorCaractere++;
+        }
+    });
+    return contadorCaractere;
 }
+// Ex 2:
+// let nomes : string[] = []
+// RetornarTexto(nomes)
+// function RetornarTexto(nomes : string[]) : void{
+//     if (nomes.length == 0){
+//         console.log("Ninguém gostou disso.")
+//     }else if(nomes.length == 1){
+//         console.log(nomes[0]+ " gostou disso.")
+//     }else if(nomes.length == 2){
+//         console.log(nomes[0]+ " e " +nomes[1]+ " gostaram disso.")
+//     }else if(nomes.length == 3){
+//         console.log(nomes[0]+ ", " +nomes[1]+ " e " +nomes[2]+ " gostaram disso.")
+//     }else if(nomes.length > 3){
+//         console.log(nomes[0]+ ", " +nomes[1]+ " e outros " +(nomes.length - 2)+ " gostaram disso.")
+//     }
+// }
 // Ex 3:
 // console.log(CamelCase("frase camel case"))
 // function CamelCase(string : string) : string{
